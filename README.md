@@ -9,7 +9,7 @@ Exemple, en cas de vole d'une clé USB, le voleur ne pourra pas acoir accès à 
 
 ### config.json
 
-Les deux dossier enc/ et dec/ possèdent tous deux un fichier config.json
+Les deux dossiers enc/ et dec/ possèdent tous deux un fichier config.json
 
 #### global
 
