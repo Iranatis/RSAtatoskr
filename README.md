@@ -3,7 +3,7 @@
 ## Description
 
 Ce programme contient, via les dossier enc/ et dec/, le moyen de chiffrer ses fichiers pour les protéger lors d'un transfert. 
-Exemple, en cas de vole d'une clé USB, le voleur ne pourra pas avoir accès à l'information.
+Exemple, en cas de vol d'une clé USB, le voleur ne pourra pas avoir accès à l'information.
 
 ## Informations
 
