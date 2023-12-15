@@ -28,11 +28,19 @@ Leur produit donne le n de la partie "enc", ce dernier doit être compris entre 
 
 Pour vous aider à les générer, il y a le programme generate_a_b_n dans le dossier other_tools/.
 
+### Mise en place
+
+Il faut commencer par remplir les fichiers config.json comme indiqué dans la partie précédente.
+
+Il faut ensuite déplacer le fichier enc/ vers l'ordianteur à l'origine du déplacement des fichiers, et dec/ sur celui qui les reçoits.
+
+Attention : Je conseil d'utiliser des configurations différentes de (a, b, n) entre le transfert de &alpha; vers &beta; et de &beta; vers &alpha;. 
+
 ### Utilisation
 
-Les fichiers à chiffrer doivent être mis dans le dossier enc/INPUT/, leur version chiffrés seront disponible dans le dossier enc/OUTPUT/ avec un fichier info.txt, ce dernier contient l'identifiant permettant le déchiffrement, il contient aussi la clé publique (utile en cas de problème avec la génération de l'aléatoire pour pouvoir déchiffrer malgré tout).
+Les fichiers à chiffrer doivent être mis dans le dossier enc/INPUT/, leur version chiffrées seront disponible dans le dossier enc/OUTPUT/ avec un fichier info.txt, ce dernier contient l'identifiant permettant le déchiffrement, il contient aussi la clé publique (utile en cas de problème avec la génération de l'aléatoire pour pouvoir déchiffrer malgré tout).
 
-Pour déchiffrerles fichiers, il faut suivre la même logique mais dans le dossier dec/.
+Pour déchiffrer les fichiers, il faut suivre la même logique mais dans le dossier dec/.
 
 ### Attention nombres premiers
 
