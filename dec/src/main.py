@@ -95,8 +95,10 @@ def inverse_mod(a, n):
     return x1
 
 
-#Rabin-Miller, pas sûr à 100%
-def is_prime(n, k=100):
+# Rabin-Miller, pas sûr à 100%
+# k = 25, recommendation GMP
+# https://fr.wikipedia.org/wiki/Test_de_primalit%C3%A9_de_Miller-Rabin
+def is_prime(n, k=25):
     if n <= 1:
         return False
     if n <= 3:
