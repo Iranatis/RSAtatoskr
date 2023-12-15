@@ -1,7 +1,8 @@
 from parameter import get
 
 from os import walk, path
-from random import randint, seed
+from random import randint, seed, randrange
+from sys import maxsize
 
 
 SEED = -1
@@ -63,7 +64,7 @@ def encrypt_bytes(b):
 
 def set_seed():
     global SEED
-    SEED = randint(0, (1 << 64) -1)
+    SEED = randrange(maxsize)
     seed(SEED)
     
 def write_info():
