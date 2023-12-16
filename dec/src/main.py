@@ -12,6 +12,7 @@ PRIVATE = -1
 INPUT_PATH = "../INPUT/"
 OUTPUT_PATH = "../OUTPUT/"
 
+# Donne la liste des fichiers dans le dossier INPUT_PATH
 def get_files():
     result = []
     for root, dirs, files in walk(INPUT_PATH):
@@ -19,6 +20,7 @@ def get_files():
             result.append(path.join(root, name))
     return result
 
+# Va déchiffrer le fichier donné en argument morceaux par morceaux
 def decrypt_file(file):
     global XOR
     XOR = SEED
@@ -48,6 +50,7 @@ def decrypt_file(file):
     input_file.close()
     output_file.close()
     
+# Va déchiffrer les bytes donnés en argument
 def decrypt_bytes(b):
     global XOR
     
@@ -64,11 +67,13 @@ def decrypt_bytes(b):
     
     return integer.to_bytes(get("global", "size block out"))
 
+# Va récupérer la seed permettant de définir le XOR et la clé public
 def set_seed():
     global SEED
     SEED = int(input("Donner seed (et 5k€ en BTC :)) : "))
     seed(SEED)
-    
+ 
+# Va écrire dans un fichiers certaines informations, non utilisé
 def write_info():
     with open(OUTPUT_PATH + "info.txt", 'w') as f:
         f.write("seed : " + str(SEED) + "\n")
@@ -78,6 +83,7 @@ def write_info():
         f.write("b : " + str(get("dec", "b")) + "\n")
         f.close()
     
+# Va calculer l'inverse modulaire de a dans Z/nZ (aka. a*inverse_mod(a, n) % n = 1)
 def inverse_mod(a, n):
     #Je suppose a et n premier entre eux
 
@@ -95,7 +101,8 @@ def inverse_mod(a, n):
     return x1
 
 
-# Rabin-Miller, pas sûr à 100%
+# Détermine de manière probabiliste si un nombre n est premier avec k tests
+# selon le test de primalité de Rabin-Miller, pas sûr à 100%
 # k = 25, recommendation GMP
 # https://fr.wikipedia.org/wiki/Test_de_primalit%C3%A9_de_Miller-Rabin
 def is_prime(n, k=25):
@@ -126,6 +133,7 @@ def is_prime(n, k=25):
             return False
     return True
 
+# Va générer un nombre premier aléatoire en les bornes données
 def generate_random_prime(minimum, maximum):
     while True:
         n = randint(minimum, maximum)
@@ -133,7 +141,8 @@ def generate_random_prime(minimum, maximum):
             n += 1
         if is_prime(n):
             return n
-        
+
+# Va calculer la clé publique puis son équivalent privée pour déchiffrer les fichiers        
 def set_private():
     global PRIVATE, PUBLIC
     

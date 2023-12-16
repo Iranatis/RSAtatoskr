@@ -12,6 +12,7 @@ PUBLIC = -1
 INPUT_PATH = "../INPUT/"
 OUTPUT_PATH = "../OUTPUT/"
 
+# Donne la liste des fichiers dans le dossier INPUT_PATH
 def get_files():
     result = []
     for root, dirs, files in walk(INPUT_PATH):
@@ -19,6 +20,7 @@ def get_files():
             result.append(path.join(root, name))
     return result
 
+# Va chiffrer le fichier donné en argument morceaux par morceaux
 def encrypt_file(file):
     global XOR
     XOR = SEED
@@ -46,7 +48,8 @@ def encrypt_file(file):
     
     input_file.close()
     output_file.close()
-    
+
+# Va chiffrer les bytes donnés en argument    
 def encrypt_bytes(b):
     global XOR
     
@@ -62,11 +65,13 @@ def encrypt_bytes(b):
     
     return integer.to_bytes(get("global", "size block out"))
 
+# Va générer une seed pour calculer le XOR et la clé publique
 def set_seed():
     global SEED
     SEED = randrange(maxsize)
     seed(SEED)
-    
+
+# Va écrire les informations généré dans un fichier
 def write_info():
     with open(OUTPUT_PATH + "info.txt", 'w') as f:
         f.write("seed : " + str(SEED) + "\n")
@@ -74,7 +79,8 @@ def write_info():
         f.write("n : " + str(get("enc", "n")) + "\n")
         f.close()
 
-# Rabin-Miller, pas sûr à 100%
+# Détermine de manière probabiliste si un nombre n est premier avec k tests
+# selon le test de primalité de Rabin-Miller, pas sûr à 100%
 # k = 25, recommendation GMP
 # https://fr.wikipedia.org/wiki/Test_de_primalit%C3%A9_de_Miller-Rabin
 def is_prime(n, k=25):
@@ -105,6 +111,7 @@ def is_prime(n, k=25):
             return False
     return True
 
+# Va générer un nombre premier aléatoire en les bornes données
 def generate_random_prime(minimum, maximum):
     while True:
         n = randint(minimum, maximum)
@@ -112,7 +119,8 @@ def generate_random_prime(minimum, maximum):
             n += 1
         if is_prime(n):
             return n
-        
+
+# Va générer le clé publique utilisée lors du chiffrement        
 def set_public():
     global PUBLIC
     

@@ -3,8 +3,9 @@ from random import randint
 #Le delta semble donner un temps d'exécution trop long
 DELTA = 0
 
-def write_info(borne_inf, borne_sup, a, b, n):
-    with open("abn.txt", 'w') as f:
+# Va écrire les informations généré dans un fichier
+def write_info(borne_inf, borne_sup, a, b, n, file = "abn.txt"):
+    with open(file, 'w') as f:
         f.write("borne inférieur : " + str(borne_inf) + "\n")
         f.write("borne supérieur : " + str(borne_sup) + "\n")
         f.write("a : " + str(a) + "\n")
@@ -12,7 +13,8 @@ def write_info(borne_inf, borne_sup, a, b, n):
         f.write("n : " + str(n) + "\n")
         f.close()
 
-# Rabin-Miller, pas sûr à 100%
+# Détermine de manière probabiliste si un nombre n est premier avec k tests
+# selon le test de primalité de Rabin-Miller, pas sûr à 100%
 # k = 25, recommendation GMP
 # https://fr.wikipedia.org/wiki/Test_de_primalit%C3%A9_de_Miller-Rabin
 def is_prime(n, k=25):
@@ -43,6 +45,7 @@ def is_prime(n, k=25):
             return False
     return True
 
+# Va générer un nombre premier aléatoire en les bornes données
 def generate_random_prime(minimum, maximum):
     while True:
         n = randint(minimum, maximum)
@@ -50,7 +53,8 @@ def generate_random_prime(minimum, maximum):
             n += 1
         if is_prime(n):
             return n
-        
+
+# Va générer le triplet (a, b, n) utilisé dans les fichiers de config de dec/ et enc/
 def generate_a_b_n(inf, sup):
     borne_inf = pow(256, inf)
     borne_sup = pow(256, sup)
