@@ -44,7 +44,7 @@ Pour déchiffrer les fichiers, il faut suivre la même logique mais dans le doss
 
 ### Attention nombres premiers
 
-Mon programme se base sur l'algorithme de primalité de Rabin-Miller pour obtenir ses nombres permiers, il y a donc un risque, faible mais pas inexistant, que mon programme se base sur un nombre qui n'est pas permier, auquel cas il se peut que l'algorithme de déchiffrement ne fonctionne pas.
+Mon programme se base sur l'algorithme de primalité de Rabin-Miller pour obtenir ses nombres permiers, il y a donc un risque, extrêmement faible mais pas inexistant, que mon programme se base sur un nombre qui n'est pas permier, auquel cas il se peut que l'algorithme de déchiffrement ne fonctionne pas.
 
 ## Disclaimer
 
