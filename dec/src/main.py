@@ -26,6 +26,9 @@ def decrypt_file(file):
     XOR = SEED
     
     output_name = file.replace(INPUT_PATH, OUTPUT_PATH)
+    extension = get("global", "name")
+    if output_name.endswith(extension):
+        output_name = output_name[:-len(extension)]
     output_name = output_name.replace("." + get("global", "name"), "")
     
     input_file = open(file, 'rb')
