@@ -32,7 +32,7 @@ Pour vous aider à les générer, il y a le programme generate_a_b_n dans le dos
 
 Il faut commencer par remplir les fichiers config.json comme indiqué dans la partie précédente.
 
-Il faut ensuite déplacer le fichier enc/ vers l'ordianteur à l'origine du déplacement des fichiers, et dec/ sur celui qui les reçoits.
+Il faut ensuite déplacer le fichier enc/ vers l'ordianteur à l'origine du déplacement des fichiers, et dec/ sur celui qui les reçoit.
 
 Attention : Je conseil d'utiliser des configurations différentes de (a, b, n) entre le transfert de &alpha; vers &beta; et de &beta; vers &alpha;. 
 
